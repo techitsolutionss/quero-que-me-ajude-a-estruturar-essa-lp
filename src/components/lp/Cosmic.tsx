@@ -49,13 +49,13 @@ export function Enneagram({
     return [100 + 82 * Math.cos(a), 100 + 82 * Math.sin(a)] as const;
   });
   // point index: 0 = "9", 1 = "1", ... 8 = "8"
-  const p = (n: number) => pts[n % 9];
+  const p = (n: number): readonly [number, number] => pts[n % 9] ?? [100, 100];
   const line = (a: number, b: number) =>
     `M${p(a)[0].toFixed(2)},${p(a)[1].toFixed(2)} L${p(b)[0].toFixed(2)},${p(b)[1].toFixed(2)}`;
-  const hexagram = [
-    [1, 4], [4, 2], [2, 8], [8, 5], [5, 7], [7, 1],
-  ].map(([a, b]) => line(a, b)).join(" ");
-  const triangle = [[0, 3], [3, 6], [6, 0]].map(([a, b]) => line(a, b)).join(" ");
+  const hexPairs: [number, number][] = [[1, 4], [4, 2], [2, 8], [8, 5], [5, 7], [7, 1]];
+  const triPairs: [number, number][] = [[0, 3], [3, 6], [6, 0]];
+  const hexagram = hexPairs.map(([a, b]) => line(a, b)).join(" ");
+  const triangle = triPairs.map(([a, b]) => line(a, b)).join(" ");
   return (
     <svg viewBox="0 0 200 200" className={className} style={style} fill="none" aria-hidden>
       <circle cx="100" cy="100" r="82" stroke={stroke} strokeWidth="0.8" />
