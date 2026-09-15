@@ -1,6 +1,7 @@
 import { useEffect, type CSSProperties, type ReactNode } from "react";
 import nebula from "@/assets/nebula-bg.jpg";
 import lineart from "@/assets/enneagram-lineart.png";
+import enneagramSymbol from "@/assets/simbolo-eneagrama-correto.png";
 
 /* ---------- Fixed cosmic backdrop behind the whole page ---------- */
 export function CosmicBackdrop() {
@@ -36,50 +37,14 @@ export function CosmicBackdrop() {
 export function Enneagram({
   className,
   style,
-  stroke = "currentColor",
-  numbers = false,
 }: {
   className?: string;
   style?: CSSProperties;
   stroke?: string;
   numbers?: boolean;
 }) {
-  const pts = Array.from({ length: 9 }, (_, i) => {
-    const a = (Math.PI * 2 * i) / 9 - Math.PI / 2;
-    return [100 + 82 * Math.cos(a), 100 + 82 * Math.sin(a)] as const;
-  });
-  // point index: 0 = "9", 1 = "1", ... 8 = "8"
-  const p = (n: number): readonly [number, number] => pts[n % 9] ?? [100, 100];
-  const line = (a: number, b: number) =>
-    `M${p(a)[0].toFixed(2)},${p(a)[1].toFixed(2)} L${p(b)[0].toFixed(2)},${p(b)[1].toFixed(2)}`;
-  const hexPairs: [number, number][] = [[1, 4], [4, 2], [2, 8], [8, 5], [5, 7], [7, 1]];
-  const triPairs: [number, number][] = [[0, 3], [3, 6], [6, 0]];
-  const hexagram = hexPairs.map(([a, b]) => line(a, b)).join(" ");
-  const triangle = triPairs.map(([a, b]) => line(a, b)).join(" ");
   return (
-    <svg viewBox="0 0 200 200" className={className} style={style} fill="none" aria-hidden>
-      <circle cx="100" cy="100" r="82" stroke={stroke} strokeWidth="0.8" />
-      <circle cx="100" cy="100" r="96" stroke={stroke} strokeWidth="0.4" strokeDasharray="2 4" />
-      <path d={triangle} stroke={stroke} strokeWidth="0.9" />
-      <path d={hexagram} stroke={stroke} strokeWidth="0.7" />
-      {pts.map(([x, y], i) => (
-        <g key={i}>
-          <circle cx={x} cy={y} r="2.2" fill={stroke} />
-          {numbers && (
-            <text
-              x={100 + 92 * Math.cos((Math.PI * 2 * i) / 9 - Math.PI / 2)}
-              y={100 + 92 * Math.sin((Math.PI * 2 * i) / 9 - Math.PI / 2) + 3}
-              fontSize="8"
-              textAnchor="middle"
-              fill={stroke}
-              fontFamily="Fraunces, serif"
-            >
-              {i === 0 ? 9 : i}
-            </text>
-          )}
-        </g>
-      ))}
-    </svg>
+    <img src={enneagramSymbol} alt="" className={className} style={style} aria-hidden />
   );
 }
 
