@@ -11,8 +11,9 @@ import {
   Twinkles,
   useReveal,
 } from "@/components/lp/Cosmic";
-import capa from "@/assets/capa-livro.jpg.asset.json";
-import autora from "@/assets/cecilia-correa.png.asset.json";
+import logoEscola from "@/assets/logo-escola-transparent.png";
+import capaLivro from "@/assets/livro-mockup-transparent.png";
+import autora from "@/assets/cecilia-nova.jpeg.asset.json";
 
 const TITLE = "Eneagrama Além das Personalidades — Cecilïa Corŕëa";
 const DESC =
@@ -60,10 +61,13 @@ function TopLine() {
   return (
     <div className="relative z-10 border-b border-line py-5">
       <div className="wrap flex items-center justify-between">
-        <div className="flex items-center gap-2.5 font-serif text-[14px] italic tracking-[0.02em] text-gold-2">
-          <Enneagram className="h-5 w-5" />
-          Escola Brasileira de Eneagrama
-        </div>
+        <img
+          src={logoEscola}
+          alt="Escola Brasileira de Eneagrama"
+          width={760}
+          height={760}
+          className="h-14 w-auto object-contain sm:h-16"
+        />
         <div className="text-[11.5px] tracking-[0.12em] text-paper-dim">LANÇAMENTO EDITORIAL</div>
       </div>
     </div>
@@ -117,14 +121,12 @@ function Hero() {
 
         <div className="relative flex items-center justify-center py-6 animate-rise [animation-delay:400ms]" style={{ perspective: 1400 }}>
           <div className="absolute h-[420px] w-[420px] animate-halo rounded-full bg-[radial-gradient(circle,oklch(0.65_0.13_295/45%),oklch(0.83_0.1_88/15%)_45%,transparent_70%)] blur-2xl" />
-          <Enneagram className="absolute h-[460px] w-[460px] animate-spin-slow text-gold-2 opacity-30" />
-          <div className="relative w-[250px] animate-float-book rounded-[3px] border border-gold/40 shadow-[var(--shadow-book)] md:w-[290px]">
+          <Enneagram className="absolute h-[460px] w-[460px] animate-spin-slow opacity-30" />
+          <div className="relative w-[290px] animate-float-book md:w-[350px]">
             <div className="absolute -right-3 top-6 z-10 rotate-90 rounded-sm bg-gold px-3 py-1 text-[10px] font-semibold tracking-[0.18em] text-ink shadow-[var(--shadow-gold)]">
               LANÇAMENTO
             </div>
-            <div className="overflow-hidden rounded-[3px]">
-              <img src={capa.url} alt="Eneagrama Além das Personalidades — capa do livro" width={1260} height={1810} className="block w-full" />
-            </div>
+            <img src={capaLivro} alt="Eneagrama Além das Personalidades — livro" width={768} height={930} className="block w-full drop-shadow-[0_35px_35px_oklch(0_0_0/55%)]" />
           </div>
         </div>
       </div>
@@ -467,7 +469,7 @@ function Autora() {
             <span className="absolute -bottom-3 -right-3 h-10 w-10 border-b border-r border-gold-2" />
             <div className="absolute -inset-6 -z-10 animate-halo rounded-full bg-[radial-gradient(circle,oklch(0.83_0.1_88/35%),transparent_70%)] blur-2xl" />
             <div className="overflow-hidden rounded-sm border border-gold/30 shadow-[var(--shadow-book)]">
-              <img src={autora.url} alt="Cecilïa Corŕëa" width={896} height={1152} loading="lazy" className="block w-full" />
+              <img src={autora.url} alt="Cecilïa Corŕëa" width={1200} height={1600} loading="lazy" className="block aspect-[3/4] w-full object-cover object-top" />
             </div>
           </div>
           <div>
