@@ -1,5 +1,5 @@
-- [ ] Concluir e validar a nova página de vendas mística
-- [ ] Substituir pelo logo correto da Escola Brasileira de Eneagrama
-- [ ] Substituir o símbolo de fundo pelo eneagrama correto
-- [ ] Usar a nova imagem do livro flutuante
-- [ ] Atualizar a foto da Cecilïa
+- [x] Concluir e validar a nova página de vendas mística
+- [x] Substituir pelo logo correto da Escola Brasileira de Eneagrama
+- [x] Substituir o símbolo de fundo pelo eneagrama correto
+- [x] Usar a nova imagem do livro flutuante
+- [x] Atualizar a foto da Cecilïa
